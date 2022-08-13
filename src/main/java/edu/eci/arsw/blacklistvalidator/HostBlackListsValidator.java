@@ -19,7 +19,7 @@ import java.util.logging.Logger;
  */
 public class HostBlackListsValidator {
 
-    private static final int BLACK_LIST_ALARM_COUNT=5;
+    public static final int BLACK_LIST_ALARM_COUNT=5;
     
     /**
      * Check the given host's IP address in all the available black lists,
@@ -76,14 +76,14 @@ public class HostBlackListsValidator {
 
         int checkedListsCount=0;
 
-        int divisible = skds.getRegisteredServersCount();
+        int cantidadListas = skds.getRegisteredServersCount();
 
-        for (int i = 1; i <= n; i++) {
-            int ini = divisible * i;
-            int fin = ini + divisible;
+        for (int i = 0; i < n; i++) {
+            int ini = cantidadListas * i / n;
+            int fin = ini + (cantidadListas/n);
             HostBlackListThread th = new HostBlackListThread(ini, fin , ipaddress);
-            th.start();
             hilos.add(th);
+            th.start();
         }
 
         for (HostBlackListThread host: hilos){
@@ -96,6 +96,7 @@ public class HostBlackListsValidator {
 
         for (HostBlackListThread host: hilos){
             ocurrencesCount += host.getOcurrencesCount();
+            checkedListsCount += host.getCheckedLists();
             blackListOcurrences.addAll(host.getBlackListOcurrence());
         }
 
