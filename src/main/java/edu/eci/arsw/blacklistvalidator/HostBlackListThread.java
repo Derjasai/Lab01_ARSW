@@ -18,7 +18,6 @@ public class HostBlackListThread extends Thread{
     private int checkedLists = 0;
     private int ocurrencesCount=0;
 
-
     public HostBlackListThread(int ini, int fin, String ipaddress){
         this.ini = ini;
         this.fin = fin;
@@ -35,9 +34,7 @@ public class HostBlackListThread extends Thread{
         }
     }
 
-    public int getOcurrencesCount(){
-        return ocurrencesCount;
-    }
+    public int getOcurrencesCount(){ return ocurrencesCount; }
 
     public LinkedList getBlackListOcurrence(){
         return blackListOcurrences;

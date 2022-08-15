@@ -76,12 +76,21 @@ public class HostBlackListsValidator {
 
         int checkedListsCount=0;
 
-        int cantidadListas = skds.getRegisteredServersCount();
+        int cantidadListas = skds.getRegisteredServersCount()/n;
+        int sobrante = skds.getRegisteredServersCount() % n;
 
+        int ini = 0;
+        int fin = 0;
         for (int i = 0; i < n; i++) {
-            int ini = cantidadListas * i / n;
-            int fin = ini + (cantidadListas/n);
+            fin += cantidadListas;
             HostBlackListThread th = new HostBlackListThread(ini, fin , ipaddress);
+            ini = fin;
+            hilos.add(th);
+            th.start();
+        }
+
+        if(sobrante > 0){
+            HostBlackListThread th = new HostBlackListThread(ini, ini + sobrante , ipaddress);
             hilos.add(th);
             th.start();
         }
