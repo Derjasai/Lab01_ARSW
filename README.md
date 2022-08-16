@@ -97,10 +97,31 @@ La estrategia de paralelismo antes implementada es ineficiente en ciertos casos,
 A partir de lo anterior, implemente la siguiente secuencia de experimentos para realizar las validación de direcciones IP dispersas (por ejemplo 202.24.34.55), tomando los tiempos de ejecución de los mismos (asegúrese de hacerlos en la misma máquina):
 
 1. Un solo hilo.
+
+    ![img_11.png](img_11.png)
+    ![img_12.png](img_12.png)
+
 2. Tantos hilos como núcleos de procesamiento (haga que el programa determine esto haciendo uso del [API Runtime](https://docs.oracle.com/javase/7/docs/api/java/lang/Runtime.html)).
+    
+    Número de núcleos de procesamiento:
+    ![img_13.png](img_13.png)
+    ![img_14.png](img_14.png)
+    ![img_15.png](img_15.png)
+
 3. Tantos hilos como el doble de núcleos de procesamiento.
+    
+    ![img_16.png](img_16.png)
+    ![img_17.png](img_17.png)
+
 4. 50 hilos.
-5. 100 hilos.
+
+
+
+
+6. 100 hilos.
+
+
+
 
 Al iniciar el programa ejecute el monitor jVisualVM, y a medida que corran las pruebas, revise y anote el consumo de CPU y de memoria en cada caso. ![](img/jvisualvm.png)
 
