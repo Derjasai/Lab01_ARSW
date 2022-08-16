@@ -80,9 +80,13 @@ Para 'refactorizar' este código, y hacer que explote la capacidad multi-núcleo
 
     * Se sabe que el HOST 202.24.34.55 está reportado en listas negras de una forma más dispersa, y que el host 212.24.24.55 NO está en ninguna lista negra.
     
-    ![img_7.png](img_7.png)
+    ** Con la IP: 202.24.34.55 se obtuvo:
 
-    ![img_8.png](img_8.png)
+    ![img_9.png](img_9.png)
+
+    ** Con la IP: 212.24.24.55 se obtuvo:
+
+    ![img_10.png](img_10.png)
 
 **Parte II.I Para discutir la próxima clase (NO para implementar aún)**
 
