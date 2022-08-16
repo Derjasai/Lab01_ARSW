@@ -24,16 +24,22 @@ Este ejercicio contiene una introducción a la programación con hilos en Java, 
 
 3. Complete el método __main__ de la clase CountMainThreads para que:
     1. Cree 3 hilos de tipo CountThread, asignándole al primero el intervalo [0..99], al segundo [99..199], y al tercero [200..299].
+    
        ![img_1.png](img_1.png)
+       
     2. Inicie los tres hilos con 'start()'.
 
    ![img_2.png](img_2.png)
+   
     3. Ejecute y revise la salida por pantalla.
 
    ![img_3.png](img_3.png)
+   
     4. Cambie el incio con 'start()' por 'run()'. Cómo cambia la salida?, por qué?.
+    
        ![img_4.png](img_4.png)
        ![img_5.png](img_5.png)
+       
        Al ejecutar run() estamos ejecutando un método de manera normal, por lo cual los números se imprimirá de la manera que lo hayamos preestablecido.
        Por otro lado, al ejecutar start() estamos creando un hilo nuevo por cada una de las menciones; debido a esto los tres se ejecutan al mismo tiempo, imprimiendo así los números en un orden variado.
 
