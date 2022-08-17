@@ -115,12 +115,12 @@ A partir de lo anterior, implemente la siguiente secuencia de experimentos para 
 
 4. 50 hilos.
 
-
+    ![img_18.png](img_18.png)
 
 
 6. 100 hilos.
 
-
+    ![img_19.png](img_19.png)
 
 
 Al iniciar el programa ejecute el monitor jVisualVM, y a medida que corran las pruebas, revise y anote el consumo de CPU y de memoria en cada caso. ![](img/jvisualvm.png)
