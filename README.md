@@ -116,12 +116,16 @@ A partir de lo anterior, implemente la siguiente secuencia de experimentos para 
 4. 50 hilos.
 
     ![img_18.png](Imagenes/img_18.png)
+    
+    No se pudo obtener la imagen del programa de jVisualVM puesto que el programa se detenia involuntariamente y no dejaba interactuar con antes de poder leer el tiempo que demoraba en terminar el programa. De igual forma mediante API'S de java se puedo obetener el tiempo mediante consola
 
 
 6. 100 hilos.
 
     ![img_19.png](Imagenes/img_19.png)
-
+    
+    No se pudo obtener la imagen del programa de jVisualVM puesto que el programa se detenia involuntariamente y no dejaba interactuar con antes de poder leer el tiempo que demoraba en terminar el programa. De igual forma mediante API'S de java se puedo obetener el tiempo mediante consola
+    
 
 Al iniciar el programa ejecute el monitor jVisualVM, y a medida que corran las pruebas, revise y anote el consumo de CPU y de memoria en cada caso. ![](img/jvisualvm.png)
 
