@@ -21,25 +21,25 @@ Este ejercicio contiene una introducción a la programación con hilos en Java, 
 1. De acuerdo con lo revisado en las lecturas, complete las clases CountThread, para que las mismas definan el ciclo de vida de un hilo que imprima por pantalla los números entre A y B.
 * Implementación de la clase CountThread:
 
-  ![img.png](img.png)
+  ![img.png](Imagenes/img.png)
 
 3. Complete el método __main__ de la clase CountMainThreads para que:
     1. Cree 3 hilos de tipo CountThread, asignándole al primero el intervalo [0..99], al segundo [99..199], y al tercero [200..299].
     
-       ![img_1.png](img_1.png)
+       ![img_1.png](Imagenes/img_1.png)
        
     2. Inicie los tres hilos con 'start()'.
 
-   ![img_2.png](img_2.png)
+   ![img_2.png](Imagenes/img_2.png)
    
     3. Ejecute y revise la salida por pantalla.
 
-   ![img_3.png](img_3.png)
+   ![img_3.png](Imagenes/img_3.png)
    
     4. Cambie el incio con 'start()' por 'run()'. Cómo cambia la salida?, por qué?.
     
-       ![img_4.png](img_4.png)
-       ![img_5.png](img_5.png)
+       ![img_4.png](Imagenes/img_4.png)
+       ![img_5.png](Imagenes/img_5.png)
        
        Al ejecutar run() estamos ejecutando un método de manera normal, por lo cual los números se imprimirá de la manera que lo hayamos preestablecido.
        Por otro lado, al ejecutar start() estamos creando un hilo nuevo por cada una de las menciones; debido a esto los tres se ejecutan al mismo tiempo, imprimiendo así los números en un orden variado.
@@ -72,7 +72,7 @@ Para 'refactorizar' este código, y hacer que explote la capacidad multi-núcleo
 
 1. Cree una clase de tipo Thread que represente el ciclo de vida de un hilo que haga la búsqueda de un segmento del conjunto de servidores disponibles. Agregue a dicha clase un método que permita 'preguntarle' a las instancias del mismo (los hilos) cuantas ocurrencias de servidores maliciosos ha encontrado o encontró.
 
-![img_6.png](img_6.png)
+![img_6.png](Imagenes/img_6.png)
 
 2. Agregue al método 'checkHost' un parámetro entero N, correspondiente al número de hilos entre los que se va a realizar la búsqueda (recuerde tener en cuenta si N es par o impar!). Modifique el código de este método para que divida el espacio de búsqueda entre las N partes indicadas, y paralelice la búsqueda a través de N hilos. Haga que dicha función espere hasta que los N hilos terminen de resolver su respectivo sub-problema, agregue las ocurrencias encontradas por cada hilo a la lista que retorna el método, y entonces calcule (sumando el total de ocurrencuas encontradas por cada hilo) si el número de ocurrencias es mayor o igual a _BLACK_LIST_ALARM_COUNT_. Si se da este caso, al final se DEBE reportar el host como confiable o no confiable, y mostrar el listado con los números de las listas negras respectivas. Para lograr este comportamiento de 'espera' revise el método [join](https://docs.oracle.com/javase/tutorial/essential/concurrency/join.html) del API de concurrencia de Java. Tenga también en cuenta:
 
@@ -82,11 +82,11 @@ Para 'refactorizar' este código, y hacer que explote la capacidad multi-núcleo
     
     ** Con la IP: 202.24.34.55 se obtuvo:
 
-    ![img_9.png](img_9.png)
+    ![img_9.png](Imagenes/img_9.png)
 
     ** Con la IP: 212.24.24.55 se obtuvo:
 
-    ![img_10.png](img_10.png)
+    ![img_10.png](Imagenes/img_10.png)
 
 **Parte II.I Para discutir la próxima clase (NO para implementar aún)**
 
@@ -98,34 +98,36 @@ A partir de lo anterior, implemente la siguiente secuencia de experimentos para 
 
 1. Un solo hilo.
 
-    ![img_11.png](img_11.png)
-    ![img_12.png](img_12.png)
+    ![img_11.png](Imagenes/img_11.png)
+    ![img_12.png](Imagenes/img_12.png)
 
 2. Tantos hilos como núcleos de procesamiento (haga que el programa determine esto haciendo uso del [API Runtime](https://docs.oracle.com/javase/7/docs/api/java/lang/Runtime.html)).
     
     Número de núcleos de procesamiento:
-    ![img_13.png](img_13.png)
-    ![img_14.png](img_14.png)
-    ![img_15.png](img_15.png)
+    ![img_13.png](Imagenes/img_13.png)
+    ![img_14.png](Imagenes/img_14.png)
+    ![img_15.png](Imagenes/img_15.png)
 
 3. Tantos hilos como el doble de núcleos de procesamiento.
     
-    ![img_16.png](img_16.png)
-    ![img_17.png](img_17.png)
+    ![img_16.png](Imagenes/img_16.png)
+    ![img_17.png](Imagenes/img_17.png)
 
 4. 50 hilos.
 
-    ![img_18.png](img_18.png)
+    ![img_18.png](Imagenes/img_18.png)
 
 
 6. 100 hilos.
 
-    ![img_19.png](img_19.png)
+    ![img_19.png](Imagenes/img_19.png)
 
 
 Al iniciar el programa ejecute el monitor jVisualVM, y a medida que corran las pruebas, revise y anote el consumo de CPU y de memoria en cada caso. ![](img/jvisualvm.png)
 
 Con lo anterior, y con los tiempos de ejecución dados, haga una gráfica de tiempo de solución vs. número de hilos. Analice y plantee hipótesis con su compañero para las siguientes preguntas (puede tener en cuenta lo reportado por jVisualVM):
+
+![](Imagenes/img_20.png)
 
 **Parte IV - Ejercicio Black List Search**
 
@@ -133,8 +135,14 @@ Con lo anterior, y con los tiempos de ejecución dados, haga una gráfica de tie
 
    ![](img/ahmdahls.png), donde _S(n)_ es el mejoramiento teórico del desempeño, _P_ la fracción paralelizable del algoritmo, y _n_ el número de hilos, a mayor _n_, mayor debería ser dicha mejora. Por qué el mejor desempeño no se logra con los 500 hilos?, cómo se compara este desempeño cuando se usan 200?.
 
+    El mejor desempeño no se logra con 500 hilos, ya que no se presenta una gran diferencia en el tiempo de ejecución si se usa un menor número de hilos como 200. Por lo cual no se presenta una mejora muy significativa en el tiempo con 200 hilos.
+    Así mismo si el número de hilos es muy alto solo se emplearía un mayo tiempo en la creación de cada uno, lo que provocaría un mayor tiempo de ejecución.
+
 2. Cómo se comporta la solución usando tantos hilos de procesamiento como núcleos comparado con el resultado de usar el doble de éste?.
+
+    Con el uso de 12 hilos se presentó un tiempo de ejecución de 40439 milisegundos y con 24 hilos se mostro una duración de 6196 milisegundos. Por lo cual podemos mirar una reducción de más del doble en el tiempo, por lo tanto, es mejor usar 24 hilos en vez de 12 en este proceso.
 
 3. De acuerdo con lo anterior, si para este problema en lugar de 100 hilos en una sola CPU se pudiera usar 1 hilo en cada una de 100 máquinas hipotéticas, la ley de Amdahls se aplicaría mejor?. Si en lugar de esto se usaran c hilos en 100/c máquinas distribuidas (siendo c es el número de núcleos de dichas máquinas), se mejoraría?. Explique su respuesta.
 
-
+    En este caso no se aplicaría mejor la ley, ya que esta solo mejora el desempeño de cada una de las máquinas individualmente, observando también que sería un hilo por máquina siendo cada proceso independiente.
+    En el segundo caso si se presentation una mejora en la duración del tiempo en cada máquina, debido al mayor número de hilos como se muestra en el ejercicio anterior.
